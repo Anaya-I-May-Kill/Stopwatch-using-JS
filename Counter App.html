@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <link rel="stylesheet" href="style.css" />
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Counter</title>
+  </head>
+  <body>
+    <div id="main">
+      <div id="heading">
+        <h1>Counter App</h1>
+      </div>
+      <div id="counter">
+        <p><span id="count">00</span></p>
+      </div>
+      <div id="button">
+        <button id="button-increase">INCREASE</button>
+        <button id="button-decrease">DECREASE</button>
+        <button id="button-reset">RESET</button>
+      </div>
+    </div>
+
+    <script>
+      window.onload = function () {
+        let counting = 0;
+
+        const countDisplay = document.getElementById("count");
+
+        const buttonIncrease = document.getElementById("button-increase");
+        const buttonDecrease = document.getElementById("button-decrease");
+        const buttonReset = document.getElementById("button-reset");
+
+        buttonIncrease.onclick = function () {
+          counting++;
+          updateDisplay();
+        };
+
+        buttonDecrease.onclick = function () {
+          if (counting > 0) {
+            counting--;
+          }
+          updateDisplay();
+        };
+
+        buttonReset.onclick = function () {
+          counting = 0;
+          updateDisplay();
+        };
+
+        function updateDisplay() {
+          countDisplay.innerHTML = counting <= 9 ? "0" + counting : counting;
+        }
+      };
+    </script>
+  </body>
+</html>
